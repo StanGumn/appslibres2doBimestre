@@ -1,33 +1,19 @@
-var app = angular.module('Usuarios',[]);
+var app = angular.module('AplicacionPrueba',['ui.router']);
 
-
-app.controller('Usuario', ['$scope','$http', function($scope,$http) {
-    $scope.saludo = 'Hola!';
-    $scope.nombre = 'Adrian';
-    $scope.saludo = function(){
-        return "Saludos" + $scope.nombre ;
-    }
+app.config(function($stateProvider, $urlRouterProvider){
     
-$http({
-    method: 'GET',
-    url: 'http://localhost:1337/Usuarios'
-}).then(function successCallback(DATOS) {
-   console.log(DATOS);
+    $urlRouterProvider.otherwise("/");
+    $stateProvider
+        .state('home',{
+        url:"/", 
+        templateUrl: "rutas/Home.html", 
+        controller:'HomeController'
+    })        
+        .state('cuenta',{url:"/Usuarios", templateUrl: "rutas/CuentaUsuario.html", controller:'CuentaUsuarioController'})
     
-    $scope.usuarios = DATOS.data;
-    
-    
-    
-}, function errorCallback(ERROR) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-    console.log(ERROR);
+        .state('usuarios',{url:"/Cuentas", templateUrl: "rutas/Usuarios.html", controller:'UsuariosController'});
 });
-    
-    $scope.seleccionado = 0;
 
-
-}]);
 
 
 
