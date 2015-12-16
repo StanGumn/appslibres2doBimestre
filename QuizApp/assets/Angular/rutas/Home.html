@@ -1,1 +1,16 @@
-<h1>home</h1>
+<h1>Home</h1>
+
+<div class="container">
+    <div ng-repeat="elUsuario in listaUsuarios">
+        <h1>Usuario: {{$index+1}}</h1>
+        <img ng-src="{{elUsuario.imagen}}" width="150px" height="150px">
+        <h1>{{elUsuario.apellido}} - {{elUsuario.nombre}} </h1>
+        <ul>
+            <li>Correo: {{elUsuario.correo}}</li>
+            <li>Fecha de Nacimiento: {{elUsuario.fecha}}</li>
+            <li>ID: {{elUsuario.id}}</li>
+        </ul>
+
+        <li><a class="btn btn--primary" ng-href="#/editarusuario/{{elUsuario.id}}">Editar Usuarios</a></li>
+    </div>
+</div>

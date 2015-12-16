@@ -26,6 +26,9 @@ module.exports = {
             type: 'date',
             required: true
         },
+        imagen: {
+            type: 'text'
+        },
         pruebasColeccion: {
             collection: 'pruebas',
             via: 'idUsuario'

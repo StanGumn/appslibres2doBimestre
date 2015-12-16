@@ -1,0 +1,52 @@
+<h1>Editar Usuario</h1>
+
+<div class="container">
+    <div class="col-sm-4">
+        <div>
+            <h1>Usuario: {{usuariosEdit.id}}</h1>
+            <img ng-src="{{usuariosEdit.imagen}}" width="150px" height="150px">
+            <h1>{{usuariosEdit.apellido}} - {{usuariosEdit.nombre}} </h1>
+            <ul>
+                <li>Correo: {{usuariosEdit.correo}}</li>
+                <li>Fecha de Nacimiento: {{usuariosEdit.fecha}}</li>
+                
+            </ul>
+        </div>
+
+
+    </div>
+    <div class="col-sm-6">
+        <form ng-submit="editarUsuario()">
+
+            <div class="form-group">
+                <label for="nombreUsuario">Nombre:</label>
+                <input ng-model="usuariosEdit.nombre" type="text" class="form-control" id="nombreUsuario" placeholder="Ingrese su Nombre">
+            </div>
+
+            <div class="form-group">
+                <label for="apellidoUsuario">Apellido:</label>
+                <input ng-model="usuariosEdit.apellido" type="text" class="form-control" id="apellidoUsuario" placeholder="Ingrese su Apellido">
+            </div>
+            <div class="form-group">
+                <label for="correoUsuario">Correo:</label>
+                <input ng-model="usuariosEdit.correo" type="email" class="form-control" id="correoUsuario" placeholder="Ingrese su correo">
+            </div>
+            <div class="form-group">
+                <label for="passwordUsuario">Password:</label>
+                <input ng-model="usuariosEdit.password" type="password" class="form-control" id="passwordUsuario" placeholder="Ingrese su Password">
+            </div>
+
+            <div class="form-group">
+                <label for="fechaNacUsuario">Imagen:</label>
+                <input ng-model="usuariosEdit.imagen" type="text" class="form-control" id="fechaNacUsuario" placeholder="Imagen Usuario">
+            </div>
+
+
+
+            <button class="btn btn-primary">Actualizar Usuario</button>
+        </form>
+
+    </div>
+
+
+</div>

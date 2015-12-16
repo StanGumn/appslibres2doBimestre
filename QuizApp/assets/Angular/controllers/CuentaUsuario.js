@@ -1,5 +1,5 @@
-app.controller('CuentaUsuarioController', ['$scope', function($scope){
-    
-    
-    
+app.controller('CuentaController',['$scope',function($scope){
+
+console.log("Entro al controlador Cuenta Usuario");
+
 }]);
