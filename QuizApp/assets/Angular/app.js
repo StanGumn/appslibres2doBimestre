@@ -27,7 +27,4 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "rutas/CuentaUsuario.html",
             controller: 'CuentaController'
         });
-
-
-
 });

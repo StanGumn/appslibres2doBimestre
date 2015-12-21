@@ -2,15 +2,26 @@
 
 <div class="container">
     <div ng-repeat="elUsuario in listaUsuarios">
-        <h1>Usuario: {{$index+1}}</h1>
-        <img ng-src="{{elUsuario.imagen}}" width="150px" height="150px">
-        <h1>{{elUsuario.apellido}} - {{elUsuario.nombre}} </h1>
-        <ul>
-            <li>Correo: {{elUsuario.correo}}</li>
-            <li>Fecha de Nacimiento: {{elUsuario.fecha}}</li>
-            <li>ID: {{elUsuario.id}}</li>
-        </ul>
+        <div class="col-sm-4">
+            <h1>Usuario: {{$index+1}}</h1>
+            <img ng-src="{{elUsuario.imagen}}" width="150px" height="150px">
+            <h1>{{elUsuario.apellido}} - {{elUsuario.nombre}} </h1>
+            <ul>
+                <li>Correo: {{elUsuario.correo}}</li>
+                <li>Nacimiento: {{elUsuario.fecha}}</li>
 
-        <li><a class="btn btn--primary" ng-href="#/editarusuario/{{elUsuario.id}}">Editar Usuarios</a></li>
+            </ul>
+            <div class="container">
+                <br>
+                <a ng-href="#/editarusuario/{{elUsuario.id}}">
+                    <button class="btn btn-danger">Editar Usuarios</button>
+                </a>
+                </br>
+                <br>
+                <button ng-click="eliminarUsuario(elUsuario.id)" class="btn btn-danger">Eliminar Usuario</button>
+                </br>
+            </div>
+
+        </div>
     </div>
 </div>

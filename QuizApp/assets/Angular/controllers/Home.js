@@ -15,5 +15,11 @@ app.controller('HomeController', ['$scope', '$http', function ($scope, $http) {
         function falloEnElGuardado(error) {
             console.log(error);
         });
+    
+    
+    $scope.eliminarUsuario = function(idUsuario){
+        console.log(idUsuario);
+        
+    }
 
 }]);
