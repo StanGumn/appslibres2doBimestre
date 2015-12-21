@@ -19,7 +19,10 @@ app.controller('HomeController', ['$scope', '$http', function ($scope, $http) {
     
     $scope.eliminarUsuario = function(idUsuario){
         console.log(idUsuario);
-        
+        $http({ method: 'DELETE',
+            url: 'http://localhost:1337/Usuarios/' + idUsuario
+            
+        });
     }
 
 }]);

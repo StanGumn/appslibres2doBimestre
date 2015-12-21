@@ -1,4 +1,4 @@
-app.controller('EditarUsuarioController', ['$scope', "$http", '$stateParams', function ($scope, $http, $stateParams) {
+app.controller('EditarUsuarioController', ['$scope', "$http", '$stateParams', 'PruebasFactory', function ($scope, $http, $stateParams, PruebasFactory) {
 
     console.log("Entro a Editar usuario");
 
@@ -18,8 +18,6 @@ app.controller('EditarUsuarioController', ['$scope', "$http", '$stateParams', fu
         });
 
     $scope.editarUsuario = function () {
-
-
         $http({
             method: 'PUT',
             url: 'http://localhost:1337/Usuarios/' + $stateParams.idUsuario,
@@ -43,24 +41,51 @@ app.controller('EditarUsuarioController', ['$scope', "$http", '$stateParams', fu
 
     }
 
-//    $scope.varialeNomnreDelDesarrollador = {
-//        nombre: 'Adrian',
-//        edad: 21,
-//        casado: true,
-//        hijos: ['pepe', 'juan'],
-//        novia: {
-//            nombre: 'fsddsf'
-//        }
-//    };
-//    $scope.varialeNomnreDelDesarrollador = "Nombre";
-//    $scope.varialeNomnreDelDesarrollador = 1;
-//    $scope.varialeNomnreDelDesarrollador = function () {
-//
-//    };
-//    $scope.varialeNomnreDelDesarrollador = true;
-//    $scope.varialeNomnreDelDesarrollador = false;
-//    $scope.varialeNomnreDelDesarrollador = null;
-//    $scope.varialeNomnreDelDesarrollador = undefined;
-//    $scope.varialeNomnreDelDesarrollador = [1, "asdsd", true, false, null, undefined, function () {}];
+    PruebasFactory.busqueda({
+            idUsuario: $stateParams.idUsuario
+        })
+        .$promise.then(
+            function llegaron(respuesta) {
+                console.log(respuesta);
+            },
+            function Errores(error) {
+                console.log(error);
+            }
+
+        );
+
+    
+    PruebasFactory.save({
+            nombre: $stateParams.pruebas.nombre
+        })
+        .$promise.then(
+            function llegaron(respuesta) {
+                console.log(respuesta);
+                $state.pruebas  
+            },
+            function Errores(error) {
+                console.log(error);
+            }
+
+        );
+    //    $scope.varialeNomnreDelDesarrollador = {
+    //        nombre: 'Adrian',
+    //        edad: 21,
+    //        casado: true,
+    //        hijos: ['pepe', 'juan'],
+    //        novia: {
+    //            nombre: 'fsddsf'
+    //        }
+    //    };
+    //    $scope.varialeNomnreDelDesarrollador = "Nombre";
+    //    $scope.varialeNomnreDelDesarrollador = 1;
+    //    $scope.varialeNomnreDelDesarrollador = function () {
+    //
+    //    };
+    //    $scope.varialeNomnreDelDesarrollador = true;
+    //    $scope.varialeNomnreDelDesarrollador = false;
+    //    $scope.varialeNomnreDelDesarrollador = null;
+    //    $scope.varialeNomnreDelDesarrollador = undefined;
+    //    $scope.varialeNomnreDelDesarrollador = [1, "asdsd", true, false, null, undefined, function () {}];
 
 }]);
